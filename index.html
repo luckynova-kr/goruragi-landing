@@ -1,184 +1,478 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>럭키노바 주식회사 | Lucky Nova Co., Ltd.</title>
-<meta name="description" content="럭키노바 주식회사는 현장의 일을 소프트웨어로 다시 설계하는 회사입니다.">
+<meta name="description" content="럭키노바 주식회사는 현장의 반복 업무를 AI로 자동화하는 업종 특화 소프트웨어 회사입니다.">
 <meta property="og:title" content="럭키노바 주식회사 | Lucky Nova Co., Ltd.">
-<meta property="og:description" content="현장의 일을 소프트웨어로 다시 설계합니다.">
+<meta property="og:description" content="현장의 일을, AI로 다시 설계합니다.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://luckynova.co.kr">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-:root {
-  --ink: #16202C;
-  --ink-soft: #4A5563;
-  --line: #D9DEE5;
-  --paper: #F4F6F8;
-  --white: #FFFFFF;
-  --signal: #2453D6;
+/* Multi-page site in one file (hash routing). Dark hero with a generative "nova" canvas, then light editorial pages. Ink + white, one nova-gold accent, mono labels. */
+:root{
+  --ink:#0a0c10; --ink-2:#14171e; --ink-3:#1f232c; --body:#4a515c; --muted:#7f8691;
+  --line:#e5e7ea; --soft:#f5f6f7; --white:#fff; --nova:#e9a43c; --nova-soft:#fbf1e1;
+  --on-dark:#eef0f3; --on-dark-2:#9aa1ac; --line-dark:#262b35;
+  --font:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
-body {
-  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
-  color: var(--ink);
-  background: var(--white);
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-  word-break: keep-all;
-}
-a { color: inherit; }
-a:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; border-radius: 2px; }
+*{box-sizing:border-box}
+body{margin:0;background:var(--white);color:var(--body);font-family:var(--font);font-size:16px;line-height:1.75;letter-spacing:-.012em;word-break:keep-all;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+img{display:block;max-width:100%}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(28px,env(safe-area-inset-left,0px));padding-right:max(28px,env(safe-area-inset-right,0px))}
+h1,h2,h3,h4{color:var(--ink);margin:0;letter-spacing:-.035em;text-wrap:balance}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.mono .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--nova);margin-right:10px;vertical-align:1px}
+.ttl{font-size:clamp(32px,4vw,52px);font-weight:600;line-height:1.22}
+.ttl em{font-style:normal;color:var(--muted);font-weight:400}
+:focus-visible{outline:2px solid var(--nova);outline-offset:3px}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:15px 26px;border-radius:999px;font-weight:600;font-size:15px;transition:background .2s,color .2s,border-color .2s}
+.btn.solid{background:var(--ink);color:#fff}.btn.solid:hover{background:var(--ink-3)}
+.btn.light{background:#fff;color:var(--ink)}.btn.light:hover{background:var(--nova-soft)}
+.btn.ghost{border:1px solid currentColor}
+.btn .ar{transition:transform .2s}.btn:hover .ar{transform:translateX(4px)}
 
-.wrap { max-width: 1040px; margin: 0 auto; padding: 0 28px; }
+/* header */
+header.hd{position:fixed;top:0;left:0;right:0;z-index:30;padding-top:env(safe-area-inset-top,0px);transition:background .3s,color .3s,border-color .3s;border-bottom:1px solid transparent;color:var(--on-dark)}
+header.hd.light{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--ink);border-color:var(--line)}
+header.hd .wrap{display:flex;align-items:center;height:76px;gap:40px}
+.wm{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px;letter-spacing:-.02em}
+.wm svg{width:20px;height:20px}
+nav.gnb{display:flex;gap:38px;margin-left:auto;font-size:15px;font-weight:500}
+nav.gnb a{opacity:.72;transition:opacity .2s}nav.gnb a:hover,nav.gnb a.on{opacity:1}
+nav.gnb a.on{position:relative}nav.gnb a.on::after{content:"";position:absolute;left:50%;bottom:-10px;width:4px;height:4px;border-radius:50%;background:var(--nova);transform:translateX(-50%)}
+.hd .cta{padding:10px 20px;border-radius:999px;font-size:14px;font-weight:600;border:1px solid currentColor;white-space:nowrap}
+header.hd.light .cta{background:var(--ink);color:#fff;border-color:var(--ink)}
+.burger{display:none;width:26px;height:18px;position:relative;margin-left:auto}
+.burger span{position:absolute;left:0;right:0;height:1.5px;background:currentColor}
+.burger span:nth-child(1){top:0}.burger span:nth-child(2){top:8px}.burger span:nth-child(3){top:16px}
+@media (max-width:960px){nav.gnb{display:none}.hd .cta{display:none}.burger{display:block}
+ nav.gnb.open{display:flex;flex-direction:column;gap:0;position:absolute;top:calc(76px + env(safe-area-inset-top,0px));left:0;right:0;background:#fff;color:var(--ink);padding:6px max(28px,env(safe-area-inset-left,0px)) 18px;border-bottom:1px solid var(--line)}
+ nav.gnb.open a{opacity:1;padding:14px 0;border-bottom:1px solid var(--line)}nav.gnb.open a.on::after{display:none}}
 
-header.top { padding: 28px 0; }
-header.top .wrap { display: flex; align-items: center; justify-content: space-between; }
-.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; font-size: 17px; letter-spacing: -0.01em; }
-.brand svg { width: 22px; height: 22px; }
-.top nav { display: flex; gap: 28px; font-size: 15px; }
-.top nav a { text-decoration: none; color: var(--ink-soft); }
-.top nav a:hover { color: var(--ink); }
+.page{display:none}.page.on{display:block}
 
-/* Hero: the nova mark is the one bold element */
-.hero { padding: 72px 0 112px; position: relative; overflow: hidden; }
-.hero .wrap { position: relative; }
-.hero-mark { position: absolute; right: -40px; top: -40px; width: 420px; height: 420px; color: var(--signal); }
-.hero-mark .ray { transform-origin: 50% 50%; animation: nova 1.6s cubic-bezier(.2,.7,.2,1) both; }
-@keyframes nova { from { transform: scale(.2) rotate(-20deg); opacity: 0; } to { transform: none; opacity: 1; } }
-.hero h1 { position: relative; font-size: clamp(38px, 6.4vw, 76px); line-height: 1.12; letter-spacing: -0.035em; font-weight: 800; max-width: 12em; }
-.hero p { position: relative; margin-top: 28px; font-size: clamp(17px, 2vw, 20px); color: var(--ink-soft); max-width: 34em; }
+/* home hero */
+.hero{position:relative;background:var(--ink);color:var(--on-dark);min-height:min(100vh,940px);display:flex;flex-direction:column;overflow:hidden}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero .copy{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center;padding-top:150px;padding-bottom:60px}
+.hero .mono{color:var(--on-dark-2)}
+.hero h1{color:#fff;font-size:clamp(42px,6.4vw,92px);font-weight:700;line-height:1.1;margin-top:28px;letter-spacing:-.045em}
+.hero h1 span{color:var(--on-dark-2);font-weight:300}
+.hero p{font-size:18px;color:var(--on-dark-2);max-width:46ch;margin:28px 0 40px}
+.hero .btns{display:flex;gap:12px;flex-wrap:wrap}
+.hero .btns .ghost{color:var(--on-dark)}
+.hero .ticker{position:relative;z-index:1;border-top:1px solid var(--line-dark)}
+.hero .ticker .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.hero .ticker .wrap>div{padding:24px 0 30px 24px;border-left:1px solid var(--line-dark)}
+.hero .ticker .wrap>div:first-child{border-left:0;padding-left:0}
+.hero .copy>.wrap{width:100%}
+.hero .ticker b{display:block;color:#fff;font-size:16px;font-weight:600;margin-top:6px}
+@media (max-width:860px){.hero .ticker .wrap{grid-template-columns:1fr 1fr}.hero .ticker .wrap>div:nth-child(3){border-left:0;padding-left:0}.hero .ticker .wrap>div{border-top:1px solid var(--line-dark)}}
 
-section { padding: 96px 0; border-top: 1px solid var(--line); }
-.cols { display: grid; grid-template-columns: 220px 1fr; gap: 48px; }
-.cols h2 { font-size: 15px; font-weight: 600; color: var(--ink-soft); padding-top: 6px; }
-.lead { font-size: clamp(22px, 2.6vw, 28px); line-height: 1.55; letter-spacing: -0.02em; font-weight: 600; max-width: 30em; }
-.lead + p { margin-top: 20px; color: var(--ink-soft); font-size: 17px; max-width: 36em; }
+section.blk{padding-block:140px}
+@media (max-width:860px){section.blk{padding-block:90px}}
+.split-head{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:80px}
+.split-head p{margin:0;font-size:17px;max-width:50ch}
+@media (max-width:860px){.split-head{grid-template-columns:1fr;gap:24px;margin-bottom:50px}}
 
-.ways { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-.ways h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 10px; padding-top: 18px; border-top: 2px solid var(--ink); }
-.ways p { color: var(--ink-soft); font-size: 16px; }
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+.pillars article{background:#fff;padding:40px 36px 44px 0;display:flex;flex-direction:column;gap:16px}
+.pillars article+article{padding-left:36px}
+.pillars .ic{width:44px;height:44px;border-radius:12px;background:var(--soft);display:grid;place-items:center}
+.pillars .ic svg{width:22px;height:22px;stroke:var(--ink)}
+.pillars h3{font-size:22px;font-weight:600}
+.pillars p{margin:0;font-size:15.5px}
+.pillars ul{margin:6px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;font-size:14.5px;color:var(--ink)}
+.pillars li::before{content:"—";color:var(--nova);margin-right:10px}
+@media (max-width:860px){.pillars{grid-template-columns:1fr}.pillars article,.pillars article+article{padding:32px 0}}
 
-.info { background: var(--paper); border-top: none; }
-dl { display: grid; grid-template-columns: 160px 1fr; row-gap: 0; }
-dt, dd { padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
-dt { color: var(--ink-soft); }
-dd { font-weight: 500; }
-dd a { color: var(--signal); text-decoration: none; }
-dd a:hover { text-decoration: underline; }
+/* product feature */
+.feature{background:var(--ink);color:var(--on-dark-2);overflow:hidden}
+.feature .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center;padding-block:130px}
+.feature h2{color:#fff}
+.feature .mono{color:var(--on-dark-2)}
+.feature p{font-size:17px;margin:24px 0 32px;max-width:44ch}
+.feature .tag{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--nova);border:1px solid rgba(233,164,60,.45);border-radius:999px;padding:3px 12px;margin-bottom:22px}
+.mock{background:var(--ink-2);border:1px solid var(--line-dark);border-radius:20px;padding:20px;box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.mock .bar{display:flex;justify-content:space-between;align-items:center;color:var(--on-dark);font-size:13px;margin-bottom:16px}
+.mock .bar b{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--nova)}
+.mock .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.mock .k{background:var(--ink-3);border-radius:12px;padding:14px}
+.mock .k span{display:block;font-size:11.5px;color:var(--on-dark-2)}
+.mock .k strong{display:block;color:#fff;font-size:20px;font-weight:600;font-family:var(--mono);margin-top:2px}
+.mock .k strong.al{color:#ef7a68}
+.mock .rows{margin-top:10px;background:var(--ink-3);border-radius:12px;padding:6px 14px}
+.mock .r{display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center;padding:11px 0;border-top:1px solid var(--line-dark);font-size:13px;color:var(--on-dark)}
+.mock .r:first-child{border-top:0}
+.mock .r i{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--on-dark-2)}
+.mock .pill{font-size:11px;font-weight:600;padding:2px 9px;border-radius:999px}
+.mock .p1{background:rgba(239,122,104,.16);color:#ef7a68}.mock .p2{background:rgba(233,164,60,.16);color:var(--nova)}.mock .p3{background:rgba(110,200,160,.14);color:#6ec8a0}
+.mock .ai{margin-top:10px;border-radius:12px;padding:14px;background:linear-gradient(0deg,rgba(233,164,60,.08),rgba(233,164,60,.08)),var(--ink-3);border:1px solid rgba(233,164,60,.3);font-size:13px;color:var(--on-dark)}
+.mock .ai b{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--nova);margin-bottom:4px}
+@media (max-width:960px){.feature .wrap{grid-template-columns:1fr;gap:50px;padding-block:90px}}
 
-.contact .lead a { color: var(--signal); text-decoration: none; border-bottom: 2px solid currentColor; }
+.process{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}
+.process div{padding:32px 28px 0 0}
+.process b{font-family:var(--mono);font-size:12px;color:var(--nova);letter-spacing:.1em}
+.process h4{font-size:20px;font-weight:600;margin:14px 0 8px}
+.process p{margin:0;font-size:15px}
+@media (max-width:860px){.process{grid-template-columns:1fr 1fr;gap:0 20px}.process div{padding-bottom:28px}}
 
-footer { padding: 40px 0 56px; border-top: 1px solid var(--line); font-size: 13px; color: var(--ink-soft); line-height: 1.9; }
-footer .wrap { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.cta-band{background:var(--soft)}
+.cta-band .wrap{padding-block:110px;display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap}
+.cta-band h2{font-size:clamp(28px,3.4vw,42px);font-weight:600;line-height:1.3}
 
-@media (max-width: 820px) {
-  .top nav { display: none; }
-  .hero { padding: 40px 0 80px; }
-  .hero-mark { width: 260px; height: 260px; right: -70px; top: -30px; opacity: .9; }
-  section { padding: 64px 0; }
-  .cols { grid-template-columns: 1fr; gap: 20px; }
-  .ways { grid-template-columns: 1fr; gap: 28px; }
-  dl { grid-template-columns: 112px 1fr; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero-mark .ray { animation: none; }
-}
+/* sub pages */
+.sub-hero{background:var(--ink);color:var(--on-dark);padding-top:calc(76px + env(safe-area-inset-top,0px));position:relative;overflow:hidden}
+.sub-hero .wrap{padding-block:110px 90px;position:relative;z-index:1}
+.sub-hero .mono{color:var(--on-dark-2)}
+.sub-hero h1{color:#fff;font-size:clamp(40px,5.4vw,72px);font-weight:700;margin-top:22px;letter-spacing:-.045em}
+.sub-hero p{color:var(--on-dark-2);font-size:18px;max-width:52ch;margin:22px 0 0}
+.sub-hero .glow{position:absolute;right:-10%;top:-40%;width:60%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(233,164,60,.22),rgba(233,164,60,0) 62%)}
+.sec{padding-block:120px;border-bottom:1px solid var(--line)}
+.sec:last-child{border-bottom:0}
+.sec-grid{display:grid;grid-template-columns:300px 1fr;gap:80px}
+.sec-grid > div:first-child{display:flex;flex-direction:column;gap:14px}
+.sec h2{font-size:30px;font-weight:600}
+.lead{font-size:20px;color:var(--ink);line-height:1.65;margin:0 0 30px;max-width:44ch;font-weight:500}
+@media (max-width:860px){.sec-grid{grid-template-columns:1fr;gap:28px}.sec{padding-block:80px}}
+
+.prod{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.prod .card{border:1px solid var(--line);border-radius:20px;padding:40px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.prod .card.dark{background:var(--ink);border-color:var(--ink);color:var(--on-dark-2)}
+.prod .card.dark h3{color:#fff}
+.prod .card h3{font-size:28px;font-weight:700}
+.prod .card .sub{font-size:15px;font-weight:600;color:var(--ink)}
+.prod .card.dark .sub{color:var(--nova)}
+.prod .card p{margin:0}
+.prod .card ul{list-style:none;margin:8px 0 0;padding:0;border-top:1px solid var(--line)}
+.prod .card.dark ul{border-color:var(--line-dark)}
+.prod .card li{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.prod .card.dark li{border-color:var(--line-dark)}
+.prod .card li b{color:var(--ink);font-weight:600}
+.prod .card.dark li b{color:#fff}
+.prod .status{align-self:flex-start;font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:3px 10px;border-radius:999px;border:1px solid currentColor}
+@media (max-width:960px){.prod{grid-template-columns:1fr}.prod .card{padding:30px 24px}.prod .card li{grid-template-columns:1fr;gap:2px}}
+
+.ind{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.ind div{background:var(--soft);border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:10px}
+.ind h4{font-size:19px;font-weight:600}
+.ind p{margin:0;font-size:15px}
+@media (max-width:860px){.ind{grid-template-columns:1fr}}
+
+.gov{border:1px solid var(--line);border-radius:20px;padding:44px;display:grid;grid-template-columns:1fr 1fr;gap:50px;background:linear-gradient(180deg,var(--nova-soft),#fff 70%)}
+.gov ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px}
+.gov li{display:grid;grid-template-columns:28px 1fr;font-size:15.5px;color:var(--ink)}
+.gov li::before{content:"✓";color:var(--nova);font-weight:700}
+.gov small{display:block;color:var(--muted);font-size:13px;margin-top:18px}
+@media (max-width:860px){.gov{grid-template-columns:1fr;padding:30px 24px;gap:28px}}
+
+.principles{border-top:1px solid var(--ink)}
+.principles div{display:grid;grid-template-columns:80px 260px 1fr;gap:24px;padding:30px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.principles b{font-family:var(--mono);font-size:12px;color:var(--nova)}
+.principles h4{font-size:21px;font-weight:600}
+.principles p{margin:0}
+@media (max-width:860px){.principles div{grid-template-columns:1fr;gap:6px}}
+.info{border-top:1px solid var(--ink);display:grid;grid-template-columns:200px 1fr}
+.info dt,.info dd{margin:0;padding:18px 0;border-bottom:1px solid var(--line);font-size:15.5px}
+.info dt{color:var(--ink);font-weight:600}
+.ph{color:var(--muted);border-bottom:1px dotted var(--muted)}
+
+.contact{display:grid;grid-template-columns:.8fr 1.2fr;gap:90px;align-items:start}
+.contact .side{display:flex;flex-direction:column;gap:28px}
+.contact .mail{font-size:24px;font-weight:600;color:var(--ink);letter-spacing:-.02em;word-break:break-all}
+.copy-btn{font-size:13px;font-weight:600;border:1px solid var(--line);border-radius:999px;padding:6px 14px;align-self:flex-start}
+form{display:grid;grid-template-columns:1fr 1fr;gap:26px 22px}
+form .full{grid-column:1/-1}
+label{display:flex;flex-direction:column;gap:9px;font-size:14px;font-weight:600;color:var(--ink)}
+input,select,textarea{font:inherit;font-weight:400;font-size:16px;color:var(--ink);background:#fff;border:0;border-bottom:1px solid #cdd1d6;border-radius:0;padding:12px 0;width:100%}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--ink)}
+textarea{min-height:120px;resize:vertical}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips label{flex-direction:row;font-weight:500;font-size:14px;border:1px solid #cdd1d6;border-radius:999px;padding:8px 16px;cursor:pointer;transition:background .2s}
+.chips input{position:absolute;opacity:0;width:1px;height:1px}
+.chips label:has(input:checked){background:var(--ink);color:#fff;border-color:var(--ink)}
+.chips label:has(input:focus-visible){outline:2px solid var(--nova);outline-offset:2px}
+.done{grid-column:1/-1;border-radius:16px;background:var(--soft);padding:22px 24px}
+.done b{display:block;color:var(--ink);margin-bottom:4px}
+.done p{margin:0;font-size:15px}
+@media (max-width:860px){.contact{grid-template-columns:1fr;gap:50px}form{grid-template-columns:1fr}}
+
+footer.ft{background:var(--ink);color:var(--on-dark-2);font-size:13.5px}
+footer.ft .top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-block:70px 50px}
+footer.ft .wm{color:#fff}
+footer.ft nav{display:flex;gap:30px;flex-wrap:wrap;font-size:14.5px;color:var(--on-dark)}
+footer.ft .bot{border-top:1px solid var(--line-dark);padding-block:26px calc(26px + env(safe-area-inset-bottom,0px));line-height:1.9}
+footer.ft .bot b{color:var(--on-dark);font-weight:600}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
 
-<header class="top">
-  <div class="wrap">
-    <a class="brand" href="/" aria-label="럭키노바 홈">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#2453D6" d="M12 0 C12.9 7.6 16.4 11.1 24 12 C16.4 12.9 12.9 16.4 12 24 C11.1 16.4 7.6 12.9 0 12 C7.6 11.1 11.1 7.6 12 0Z"/></svg>
-      Lucky Nova
-    </a>
-    <nav aria-label="주요 메뉴">
-      <a href="#about">회사 소개</a>
-      <a href="#company">회사 정보</a>
-      <a href="#contact">문의</a>
-    </nav>
-  </div>
-</header>
+<header class="hd" id="hd"><div class="wrap">
+  <a class="wm" href="#home" aria-label="럭키노바 홈"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 0c.6 5.2 4.2 9.4 10 10-5.8.6-9.4 4.8-10 10-.6-5.2-4.2-9.4-10-10C5.8 9.4 9.4 5.2 10 0Z" fill="#e9a43c"/></svg>luckynova</a>
+  <nav class="gnb" id="gnb" aria-label="주요 메뉴">
+    <a href="#solutions">솔루션</a>
+    <a href="#approach">도입 방식</a>
+    <a href="#company">회사소개</a>
+    <a href="#contact">문의</a>
+  </nav>
+  <a class="cta" href="#contact">도입 상담</a>
+  <button class="burger" id="burger" aria-label="메뉴" aria-expanded="false"><span></span><span></span><span></span></button>
+</div></header>
 
 <main>
-  <section class="hero" style="border-top:none">
-    <div class="wrap">
-      <svg class="hero-mark" viewBox="0 0 200 200" aria-hidden="true">
-        <g class="ray">
-          <path fill="currentColor" opacity=".08" d="M100 0 C108 76 124 92 200 100 C124 108 108 124 100 200 C92 124 76 108 0 100 C76 92 92 76 100 0Z"/>
-          <path fill="currentColor" opacity=".9" d="M100 62 C102.6 89 111 97.4 138 100 C111 102.6 102.6 111 100 138 C97.4 111 89 102.6 62 100 C89 97.4 97.4 89 100 62Z"/>
-        </g>
-      </svg>
-      <h1>현장의 일을 소프트웨어로 다시 설계합니다</h1>
-      <p>생활과 일, 그 사이의 모든 흐름을 소프트웨어로. 럭키노바는 익숙함 너머의 다음 방식을 설계합니다.</p>
-    </div>
+<!-- HOME -->
+<div class="page on" id="pg-home">
+  <section class="hero">
+    <canvas id="nova" aria-hidden="true"></canvas>
+    <div class="copy"><div class="wrap">
+      <div class="mono"><span class="dot"></span>AI Operations for Field Industries</div>
+      <h1>현장의 일을,<br>AI로 <span>다시 설계합니다</span></h1>
+      <p>전화, 엑셀, 수기 장부로 돌아가는 현장 업무를 업종에 꼭 맞는 AI 자동화 시스템으로 바꿉니다. 기록은 자동으로, 판단은 데이터로.</p>
+      <div class="btns"><a class="btn light" href="#contact">도입 상담 신청 <span class="ar">→</span></a><a class="btn ghost" href="#solutions">솔루션 보기</a></div>
+    </div></div>
+    <div class="ticker"><div class="wrap">
+      <div><span class="mono">01 Capture</span><b>문서·사진 자동 인식</b></div>
+      <div><span class="mono">02 Detect</span><b>이상 징후 자동 탐지</b></div>
+      <div><span class="mono">03 Settle</span><b>정산·청구 자동화</b></div>
+      <div><span class="mono">04 See</span><b>실시간 경영 대시보드</b></div>
+    </div></div>
   </section>
 
-  <section id="about">
-    <div class="wrap cols">
-      <h2>회사 소개</h2>
-      <div>
-        <p class="lead">익숙해서 아무도 고치지 않던 불편함에서 시작합니다.</p>
-        <p>2024년 설립 이후 모바일 플랫폼과 업무용 소프트웨어를 직접 설계하고 개발해 왔습니다. 기획부터 개발, 운영까지 한 팀이 끝까지 책임집니다.</p>
+  <section class="blk"><div class="wrap">
+    <div class="split-head">
+      <div><div class="mono"><span class="dot"></span>What we do</div><h2 class="ttl" style="margin-top:20px">범용 AI가 아니라,<br><em>그 업종의 AI</em>를 만듭니다</h2></div>
+      <p>현장 업무에는 업종마다 다른 규칙과 단위, 관행이 있습니다. 럭키노바는 한 업종을 깊게 이해하고, 그 업무 흐름 안에서 AI가 실제로 일하도록 설계합니다.</p>
+    </div>
+    <div class="pillars">
+      <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><h3>기록 자동화</h3><p>영수증, 작업일지, 거래 문서를 사진 한 장으로 읽어 시스템에 자동 입력합니다.</p><ul><li>AI 문서·이미지 인식</li><li>현장용 모바일 입력</li></ul></article>
+      <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 3 5-7 4 4"/><circle cx="17" cy="7" r="1.2"/></svg></div><h3>이상 탐지·예측</h3><p>쌓인 운영 데이터로 정상 패턴을 학습해, 낭비와 이상을 사람이 찾기 전에 알려줍니다.</p><ul><li>비용 이상 사용 탐지</li><li>작업량·수요 예측</li></ul></article>
+      <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>정산·경영 가시화</h3><p>작업 기록에서 청구서까지 자동으로 이어지고, 대표는 손익과 가동률을 실시간으로 봅니다.</p><ul><li>요율·할증 자동 계산</li><li>대표용 모바일 대시보드</li></ul></article>
+    </div>
+  </div></section>
+
+  <section class="feature"><div class="wrap">
+    <div>
+      <span class="tag">FIRST VERTICAL · MARITIME</span>
+      <div class="mono">Product</div>
+      <h2 class="ttl" style="margin-top:18px">TUGDESK<br><span style="color:var(--on-dark-2);font-weight:400">예선사를 위한 AI 운영관리</span></h2>
+      <p>항만 예선사의 운항, 연료, 정산, 인력을 하나로 묶었습니다. AIS 실시간 위치와 척별 연료 데이터를 바탕으로 AI가 낭비 구간을 찾아냅니다.</p>
+      <a class="btn light" href="#solutions">자세히 보기 <span class="ar">→</span></a>
+    </div>
+    <div class="mock" aria-label="TUGDESK 화면 예시">
+      <div class="bar"><span>오늘의 선단 현황</span><b>LIVE · 예시 데이터</b></div>
+      <div class="grid">
+        <div class="k"><span>운항 중</span><strong>4 / 6</strong></div>
+        <div class="k"><span>이번 달 연료</span><strong>74,260L</strong></div>
+        <div class="k"><span>확인 필요</span><strong class="al">3</strong></div>
+      </div>
+      <div class="rows">
+        <div class="r"><span>2호 · 작업지 이동</span><i>12.4 kn</i><span class="pill p1">과속</span></div>
+        <div class="r"><span>3호 · 작업 후 대기</span><i>52 min</i><span class="pill p2">공회전</span></div>
+        <div class="r"><span>1호 · 컨테이너선 접안</span><i>2.1 kn</i><span class="pill p3">작업 중</span></div>
+      </div>
+      <div class="ai"><b>AI INSIGHT</b>3호의 작업 1시간당 연료가 선단 평균보다 28% 높습니다. 대기 중 공회전이 주원인으로 보입니다.</div>
+    </div>
+  </div></section>
+
+  <section class="blk"><div class="wrap">
+    <div class="split-head">
+      <div><div class="mono"><span class="dot"></span>How we work</div><h2 class="ttl" style="margin-top:20px">작게 시작해서,<br><em>숫자로 증명합니다</em></h2></div>
+      <p>처음부터 큰 시스템을 들이지 않습니다. 가장 아픈 업무 하나를 골라 빠르게 바꾸고, 효과를 데이터로 확인한 뒤 넓힙니다.</p>
+    </div>
+    <div class="process">
+      <div><b>STEP 01</b><h4>현장 진단</h4><p>업무 흐름과 데이터 현황을 직접 보고, 자동화 효과가 큰 지점을 찾습니다.</p></div>
+      <div><b>STEP 02</b><h4>파일럿 구축</h4><p>핵심 기능 하나를 빠르게 만들어 실제 현장에서 운영합니다.</p></div>
+      <div><b>STEP 03</b><h4>효과 검증</h4><p>시간, 비용, 오류가 얼마나 줄었는지 숫자로 확인합니다.</p></div>
+      <div><b>STEP 04</b><h4>확장·운영</h4><p>검증된 기능을 넓히고, 구독형으로 지속 개선합니다.</p></div>
+    </div>
+  </div></section>
+
+  <section class="cta-band"><div class="wrap">
+    <h2>우리 회사 업무도<br>자동화할 수 있을까요?</h2>
+    <a class="btn solid" href="#contact">무료 업무 진단 신청 <span class="ar">→</span></a>
+  </div></section>
+</div>
+
+<!-- SOLUTIONS -->
+<div class="page" id="pg-solutions">
+  <section class="sub-hero"><div class="glow"></div><div class="wrap"><div class="mono">Solutions</div><h1>솔루션</h1><p>업종 특화 AI 운영관리 제품과, 각 회사 업무에 맞춘 AI 자동화 구축을 제공합니다.</p></div></section>
+  <section class="sec"><div class="wrap">
+    <div class="prod">
+      <div class="card dark">
+        <span class="status" style="color:var(--nova)">PILOT · 2026</span>
+        <h3>TUGDESK</h3><div class="sub">예선사 AI 운영관리 플랫폼</div>
+        <p>항만 예선사의 운항부터 정산, 인력까지. 대표는 휴대폰 하나로 회사 전체를 봅니다.</p>
+        <ul>
+          <li><b>실시간 선단 현황</b><span>AIS 기반 선박 위치·작업 상태</span></li>
+          <li><b>AI 연료 분석</b><span>척별 연료 효율 비교, 과속·공회전·급유 불일치 탐지</span></li>
+          <li><b>예선료 자동 정산</b><span>작업 기록 기반 요율·할증 계산, 청구·미수 관리</span></li>
+          <li><b>인력·근무 관리</b><span>선원 당직표, 휴식시간, 육상 직원 휴가·승인</span></li>
+          <li><b>정비·증서 관리</b><span>검사·증서 만료와 정비 주기 알림</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="status" style="color:var(--ink)">CUSTOM</span>
+        <h3>맞춤 AI 업무 자동화</h3><div class="sub">업종·회사별 구축형</div>
+        <p>전화, 엑셀, 수기로 처리하던 반복 업무를 회사 상황에 맞춰 AI로 자동화합니다.</p>
+        <ul>
+          <li><b>문서 자동 인식</b><span>영수증, 송장, 작업지시서를 사진으로 입력</span></li>
+          <li><b>업무 흐름 자동화</b><span>접수, 배정, 알림, 승인 과정을 하나로 연결</span></li>
+          <li><b>데이터 분석·예측</b><span>비용 이상 탐지, 수요·작업량 예측</span></li>
+          <li><b>경영 대시보드</b><span>매출, 비용, 가동률을 실시간으로</span></li>
+          <li><b>고객 접점</b><span>홈페이지, 온라인 접수, 고객 조회 포털</span></li>
+        </ul>
       </div>
     </div>
-  </section>
-
-  <section>
-    <div class="wrap cols">
-      <h2>일하는 방식</h2>
-      <div class="ways">
-        <div>
-          <h3>현장에서 출발합니다</h3>
-          <p>책상 위의 가정보다 실제 사용자가 일하는 방식을 먼저 확인하고 설계합니다.</p>
-        </div>
-        <div>
-          <h3>투명하게 만듭니다</h3>
-          <p>비용과 구조를 숨기지 않고, 사용자가 충분한 정보로 직접 판단할 수 있게 합니다.</p>
-        </div>
-        <div>
-          <h3>완성도를 우선합니다</h3>
-          <p>빨리 내놓는 것보다 오래 믿고 쓸 수 있는 결과물을 기준으로 삼습니다.</p>
-        </div>
-      </div>
+  </div></section>
+  <section class="sec" style="background:var(--white)"><div class="wrap sec-grid">
+    <div><div class="mono"><span class="dot"></span>Industries</div><h2>집중 업종</h2></div>
+    <div class="ind">
+      <div><span class="mono">01</span><h4>해운·항만</h4><p>예선, 통선, 급유, 선박 수리 등 항만 서비스업</p></div>
+      <div><span class="mono">02</span><h4>운송·물류</h4><p>배차와 정산이 복잡한 지역 운송·물류 업체</p></div>
+      <div><span class="mono">03</span><h4>현장 서비스</h4><p>인력 배치와 작업 기록이 핵심인 현장 기반 업종</p></div>
     </div>
-  </section>
+  </div></section>
+</div>
 
-  <section class="info" id="company">
-    <div class="wrap cols">
-      <h2>회사 정보</h2>
-      <dl>
-        <dt>회사명</dt><dd>럭키노바 주식회사 (Lucky Nova Co., Ltd.)</dd>
-        <dt>대표이사</dt><dd>정성훈</dd>
-        <dt>설립</dt><dd>2024년 12월</dd>
-        <dt>사업 영역</dt><dd>소프트웨어 · 모바일 플랫폼 개발 및 운영</dd>
-        <dt>사업자등록번호</dt><dd>815-87-03021</dd>
-        <dt>통신판매업 신고</dt><dd>제2026-용인수지-1712호</dd>
-        <dt>D-U-N-S</dt><dd>696547323</dd>
-        <dt>이메일</dt><dd><a href="mailto:contact@luckynova.co.kr">contact@luckynova.co.kr</a></dd>
-      </dl>
+<!-- APPROACH -->
+<div class="page" id="pg-approach">
+  <section class="sub-hero"><div class="glow"></div><div class="wrap"><div class="mono">Approach</div><h1>도입 방식</h1><p>가장 아픈 업무 하나부터. 효과가 확인되면 넓힙니다.</p></div></section>
+  <section class="sec"><div class="wrap sec-grid">
+    <div><div class="mono"><span class="dot"></span>Process</div><h2>도입 절차</h2></div>
+    <div><p class="lead">처음부터 큰 비용을 들이지 않습니다. 현장 진단으로 시작해, 작은 파일럿으로 효과를 먼저 보여드립니다.</p>
+      <div class="process" style="grid-template-columns:repeat(2,1fr)">
+        <div><b>STEP 01</b><h4>현장 진단 (무료)</h4><p>업무 흐름을 함께 보고, 자동화 우선순위와 예상 효과를 정리해 드립니다.</p></div>
+        <div><b>STEP 02</b><h4>파일럿 (1~3개월)</h4><p>핵심 기능 하나를 구축해 실제 업무에서 운영합니다.</p></div>
+        <div><b>STEP 03</b><h4>효과 리포트</h4><p>절감 시간, 비용, 오류 감소를 숫자로 보고합니다.</p></div>
+        <div><b>STEP 04</b><h4>본 구축·구독 운영</h4><p>기능을 확장하고 월 구독형으로 유지보수·개선합니다.</p></div>
+      </div></div>
+  </div></section>
+  <section class="sec"><div class="wrap sec-grid">
+    <div><div class="mono"><span class="dot"></span>Funding</div><h2>정부 지원사업 활용</h2></div>
+    <div class="gov">
+      <div><h3 style="font-size:24px;font-weight:600;line-height:1.4">도입 비용, 정부 지원으로<br>줄일 수 있는지 함께 검토합니다</h3><p style="margin:16px 0 0">중소기업의 AI 도입을 돕는 정부 지원사업이 매년 운영됩니다. 귀사에 맞는 사업이 있는지 확인하고, 신청 준비를 함께합니다.</p></div>
+      <div><ul><li>지원 가능한 사업 검토</li><li>도입 범위와 사업계획 정리</li><li>신청 서류 준비 지원</li><li>선정 후 구축·운영</li></ul><small>※ 지원사업마다 자격 요건과 기업 부담금이 있으며, 선정 여부는 각 기관 심사에 따릅니다.</small></div>
     </div>
-  </section>
+  </div></section>
+</div>
 
-  <section class="contact" id="contact">
-    <div class="wrap cols">
-      <h2>문의</h2>
-      <div>
-        <p class="lead">협업, 도입, 제휴 문의는 <a href="mailto:contact@luckynova.co.kr">contact@luckynova.co.kr</a>로 보내주세요.</p>      </div>
+<!-- COMPANY -->
+<div class="page" id="pg-company">
+  <section class="sub-hero"><div class="glow"></div><div class="wrap"><div class="mono">Company</div><h1>회사소개</h1><p>럭키노바는 현장에서 매일 반복되는 일을 소프트웨어와 AI로 다시 설계합니다.</p></div></section>
+  <section class="sec"><div class="wrap sec-grid">
+    <div><div class="mono"><span class="dot"></span>About</div><h2>럭키노바</h2></div>
+    <div><p class="lead">사람들이 당연하게 여기던 불편함에서 출발합니다.</p>
+      <p style="margin:0 0 18px;max-width:62ch">럭키노바는 2024년에 설립된 소프트웨어 회사입니다. 모바일 플랫폼과 업무용 소프트웨어를 기획부터 개발, 운영까지 하나의 팀이 책임지고 만들어 왔습니다.</p>
+      <p style="margin:0;max-width:62ch">이제는 그 경험을 바탕으로, 디지털 전환에서 소외된 현장 산업에 업종 특화 AI를 공급합니다. 한 업종을 깊게 이해하는 것, 그것이 우리가 일하는 방식입니다.</p></div>
+  </div></section>
+  <section class="sec"><div class="wrap sec-grid">
+    <div><div class="mono"><span class="dot"></span>Principles</div><h2>일하는 방식</h2></div>
+    <div class="principles">
+      <div><b>01</b><h4>현장에서 출발합니다</h4><p>회의실이 아니라 현장에서 문제를 찾습니다. 실제로 일하는 사람의 하루를 먼저 봅니다.</p></div>
+      <div><b>02</b><h4>투명하게 만듭니다</h4><p>무엇을, 왜, 얼마에 만드는지 분명하게 공유하고, 효과는 숫자로 보고합니다.</p></div>
+      <div><b>03</b><h4>완성도를 우선합니다</h4><p>기능의 수보다, 현장에서 매일 쓰이는 하나의 완성도를 더 중요하게 여깁니다.</p></div>
     </div>
-  </section>
+  </div></section>
+  <section class="sec"><div class="wrap sec-grid">
+    <div><div class="mono"><span class="dot"></span>Information</div><h2>회사 정보</h2></div>
+    <dl class="info">
+      <dt>회사명</dt><dd>럭키노바 주식회사 (Lucky Nova Co., Ltd.)</dd>
+      <dt>대표이사</dt><dd>정성훈</dd>
+      <dt>설립</dt><dd>2024년 12월</dd>
+      <dt>사업 분야</dt><dd>업종 특화 AI 업무 자동화, 소프트웨어·모바일 플랫폼 개발 및 운영</dd>
+      <dt>사업자등록번호</dt><dd>815-87-03021</dd>
+      <dt>D-U-N-S</dt><dd>696547323</dd>
+      <dt>주소</dt><dd>경기도 용인시 수지구 풍덕천로139번길 16-5 (16837)</dd>
+      <dt>이메일</dt><dd>contact@luckynova.co.kr</dd>
+    </dl>
+  </div></section>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="pg-contact">
+  <section class="sub-hero"><div class="glow"></div><div class="wrap"><div class="mono">Contact</div><h1>문의</h1><p>도입 상담, 협업, 파트너십 문의를 남겨 주세요. 영업일 기준 2일 안에 회신드립니다.</p></div></section>
+  <section class="sec"><div class="wrap contact">
+    <div class="side">
+      <div><div class="mono"><span class="dot"></span>Email</div><div class="mail" style="margin-top:12px" id="mail">contact@luckynova.co.kr</div></div>
+      <button class="copy-btn" id="copy" type="button">이메일 주소 복사</button>
+      <p style="margin:0;font-size:15px">무료 업무 진단은 30분 내외 화상 또는 방문 미팅으로 진행됩니다. 지금 쓰고 계신 엑셀이나 장부 양식이 있다면 함께 보여 주시면 더 정확한 진단이 가능합니다.</p>
+    </div>
+    <form id="f" novalidate>
+      <div class="full" style="display:flex;flex-direction:column;gap:12px"><span style="font-size:14px;font-weight:600;color:var(--ink)">문의 유형</span>
+        <div class="chips"><label><input type="radio" name="t" id="t1" value="도입 상담" checked>도입 상담</label><label><input type="radio" name="t" id="t2" value="TUGDESK">TUGDESK</label><label><input type="radio" name="t" id="t3" value="정부 지원사업">정부 지원사업</label><label><input type="radio" name="t" id="t4" value="협업·기타">협업·기타</label></div></div>
+      <label>회사명<input id="co" placeholder="회사명"></label>
+      <label>업종<input id="ind" placeholder="예: 항만 예선, 물류"></label>
+      <label>담당자<input id="nm" placeholder="이름"></label>
+      <label>연락처 또는 이메일<input id="ct" placeholder="010-0000-0000"></label>
+      <label class="full">자동화하고 싶은 업무<textarea id="msg" placeholder="예: 매달 정산에 이틀이 걸립니다. 연료비를 척별로 관리하고 싶습니다."></textarea></label>
+      <div class="full"><button class="btn solid" type="submit" style="width:100%;justify-content:center;padding:18px">메일로 문의 보내기 <span class="ar">→</span></button></div>
+      <div class="done" id="done" hidden></div>
+    </form>
+  </div></section>
+</div>
 </main>
 
-<footer>
-  <div class="wrap">
-    <div>럭키노바 주식회사 | 대표이사 정성훈 | 사업자등록번호 815-87-03021<br>통신판매업 신고 제2026-용인수지-1712호</div>
-    <div>© 2024–2026 Lucky Nova Co., Ltd.</div>
+<footer class="ft"><div class="wrap">
+  <div class="top">
+    <a class="wm" href="#home"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 0c.6 5.2 4.2 9.4 10 10-5.8.6-9.4 4.8-10 10-.6-5.2-4.2-9.4-10-10C5.8 9.4 9.4 5.2 10 0Z" fill="#e9a43c"/></svg>luckynova</a>
+    <nav><a href="#solutions">솔루션</a><a href="#approach">도입 방식</a><a href="#company">회사소개</a><a href="#contact">문의</a></nav>
   </div>
-</footer>
+  <div class="bot">
+    <b>럭키노바 주식회사</b> · 대표 정성훈 · 사업자등록번호 815-87-03021 · 통신판매업 신고 제2026-용인수지-1712호<br>
+    경기도 용인시 수지구 풍덕천로139번길 16-5 (16837) · contact@luckynova.co.kr<br>
+    © 2024–2026 Lucky Nova Co., Ltd. All rights reserved.
+  </div>
+</div></footer>
 
+<script>
+const hd=document.getElementById('hd'),gnb=document.getElementById('gnb'),bg=document.getElementById('burger');
+const pages=['home','solutions','approach','company','contact'];
+function onScroll(){const h=document.querySelector('.page.on .hero,.page.on .sub-hero');hd.classList.toggle('light',window.scrollY>((h?h.offsetHeight:300)-80))}
+function route(){const p=(location.hash||'#home').slice(1);const n=pages.includes(p)?p:'home';
+  document.querySelectorAll('.page').forEach(el=>el.classList.toggle('on',el.id==='pg-'+n));
+  gnb.querySelectorAll('a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+n));
+  gnb.classList.remove('open');bg.setAttribute('aria-expanded','false');window.scrollTo(0,0);onScroll();
+  document.title=(n==='home'?'':({solutions:'솔루션',approach:'도입 방식',company:'회사소개',contact:'문의'}[n]+' · '))+'럭키노바 주식회사 | Lucky Nova Co., Ltd.';}
+addEventListener('hashchange',route);addEventListener('scroll',onScroll,{passive:true});route();
+bg.addEventListener('click',()=>{const o=gnb.classList.toggle('open');bg.setAttribute('aria-expanded',o);if(o)hd.classList.add('light');else onScroll()});
+
+document.getElementById('copy').addEventListener('click',e=>{const t=document.getElementById('mail').textContent,b=e.currentTarget;
+  const ok=()=>{b.textContent='복사했습니다';setTimeout(()=>b.textContent='이메일 주소 복사',1600)};
+  if(navigator.clipboard)navigator.clipboard.writeText(t).then(ok,()=>{getSelection().selectAllChildren(document.getElementById('mail'))});else getSelection().selectAllChildren(document.getElementById('mail'))});
+document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();const v=id=>document.getElementById(id).value.trim(),d=document.getElementById('done');d.hidden=false;
+  if(!v('co')||!v('ct')){d.innerHTML='<b>회사명과 연락처를 입력해 주세요.</b><p>회신을 드리려면 두 항목이 필요합니다.</p>';return}
+  const t=document.querySelector('input[name=t]:checked').value;
+  const subject=`[${t}] ${v('co')} 문의`;
+  const body=`회사명: ${v('co')}\n업종: ${v('ind')}\n담당자: ${v('nm')}\n연락처: ${v('ct')}\n\n자동화하고 싶은 업무:\n${v('msg')}`;
+  location.href=`mailto:contact@luckynova.co.kr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  d.innerHTML=`<b>메일 앱에서 작성된 문의를 보내 주세요.</b><p>메일 앱이 열리지 않으면 위 내용을 contact@luckynova.co.kr로 보내 주시면 됩니다.</p>`});
+
+/* nova canvas: drifting particles slowly drawn toward a bright core */
+(function(){const c=document.getElementById('nova');if(!c)return;const x=c.getContext('2d');let W,H,dpr,ps=[];
+ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ function size(){dpr=Math.min(devicePixelRatio||1,2);W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
+  const n=Math.round(Math.min(220,W*H/7000));ps=[];for(let i=0;i<n;i++)ps.push(mk())}
+ const core=()=>({x:W*(W<860?.7:.74),y:H*.42});
+ function mk(){const a=Math.random()*Math.PI*2,r=Math.random()*Math.max(W,H)*.75+40;const o=core();return{a,r,s:.0006+Math.random()*.0016,z:Math.random(),x:o.x+Math.cos(a)*r,y:o.y+Math.sin(a)*r*.55}}
+ function draw(t){x.clearRect(0,0,W,H);const o=core();
+  const g=x.createRadialGradient(o.x,o.y,0,o.x,o.y,Math.min(W,H)*.5);g.addColorStop(0,'rgba(233,164,60,.30)');g.addColorStop(.25,'rgba(233,164,60,.08)');g.addColorStop(1,'rgba(233,164,60,0)');x.fillStyle=g;x.fillRect(0,0,W,H);
+  for(const p of ps){if(!reduce){p.a+=p.s;p.r*=.9993;if(p.r<6)Object.assign(p,mk())}
+   p.x=o.x+Math.cos(p.a)*p.r;p.y=o.y+Math.sin(p.a)*p.r*.55;const near=Math.max(0,1-p.r/(Math.min(W,H)*.6));
+   x.fillStyle=`rgba(${near>.5?'245,200,130':'210,218,230'},${.18+p.z*.45+near*.3})`;x.beginPath();x.arc(p.x,p.y,.5+p.z*1.3+near*.6,0,Math.PI*2);x.fill()}
+  x.fillStyle='rgba(255,236,200,.95)';x.beginPath();x.arc(o.x,o.y,2.2+Math.sin(t/900)*.5,0,Math.PI*2);x.fill();
+  if(!reduce)requestAnimationFrame(draw)}
+ size();addEventListener('resize',size);requestAnimationFrame(draw)})();
+</script>
 </body>
 </html>
