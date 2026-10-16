@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>문의 · 럭키노바 주식회사</title>
+<meta name="description" content="럭키노바 도입 상담 및 문의.">
+<meta property="og:title" content="문의 · 럭키노바 주식회사">
+<meta property="og:description" content="럭키노바 도입 상담 및 문의.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://luckynova.co.kr">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hd light" id="hd"><div class="wrap">
+  <a class="wm" href="./" aria-label="럭키노바 홈"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 0c.6 5.2 4.2 9.4 10 10-5.8.6-9.4 4.8-10 10-.6-5.2-4.2-9.4-10-10C5.8 9.4 9.4 5.2 10 0Z" fill="#e9a43c"/></svg>luckynova</a>
+  <nav class="gnb" id="gnb" aria-label="주요 메뉴">
+    <a href="solutions.html">솔루션</a>
+    <a href="routine.html">자동 점검</a>
+    <a href="industries.html">업종</a>
+    <a href="approach.html">도입 방식</a>
+    <a href="company.html">회사소개</a>
+    <a href="contact.html" aria-current="page">문의</a>
+  </nav>
+  <a class="cta" href="contact.html">도입 상담</a>
+  <button class="burger" id="burger" aria-label="메뉴" aria-expanded="false"><span></span><span></span><span></span></button>
+</div></header>
+<section class="ph"><div class="glow"></div><div class="wrap">
+  <div><div class="mono">Contact</div><h1>문의</h1></div>
+  <p>도입 상담, 협업, 파트너십 문의를 남겨 주세요. 영업일 기준 2일 안에 회신드립니다.</p>
+</div></section>
+<main class="pg"><div class="wrap">
+<div class="contact">
+  <div class="side">
+    <div><div class="mono"><span class="dot"></span>Email</div><div class="mail" style="margin-top:10px" id="mail">contact@luckynova.co.kr</div></div>
+    <button class="copy-btn" id="copy" type="button">이메일 주소 복사</button>
+    <p style="margin:0;font-size:15px">무료 업무 진단은 30분 내외 화상 또는 방문 미팅으로 진행됩니다. 지금 쓰고 계신 엑셀이나 장부 양식이 있다면 함께 보여 주시면 더 정확한 진단이 가능합니다.</p>
+  </div>
+  <form id="f" novalidate>
+    <div class="full" style="display:flex;flex-direction:column;gap:10px"><span style="font-size:14px;font-weight:600;color:var(--ink)">문의 유형</span>
+      <div class="chips"><label><input type="radio" name="t" value="도입 상담" checked>도입 상담</label><label><input type="radio" name="t" value="해운·항만">해운·항만</label><label><input type="radio" name="t" value="정부 지원사업">정부 지원사업</label><label><input type="radio" name="t" value="협업·기타">협업·기타</label></div></div>
+    <label>회사명<input id="co" placeholder="회사명"></label>
+    <label>업종<input id="ind" placeholder="예: 항만 예선, 물류"></label>
+    <label>담당자<input id="nm" placeholder="이름"></label>
+    <label>연락처 또는 이메일<input id="ct" placeholder="010-0000-0000"></label>
+    <label class="full">자동화하고 싶은 업무<textarea id="msg" placeholder="예: 매달 정산에 이틀이 걸립니다. 연료비를 척별로 관리하고 싶습니다."></textarea></label>
+    <div class="full"><button class="btn solid" type="submit" style="width:100%;justify-content:center;padding:16px">메일로 문의 보내기 <span class="ar">→</span></button></div>
+    <div class="done" id="done" hidden></div>
+  </form>
+</div>
+</div></main>
+<footer class="ft"><div class="wrap">
+  <b>럭키노바 주식회사</b> · 대표 정성훈 · 사업자등록번호 815-87-03021 · 통신판매업 신고 제2026-용인수지-1712호<br>
+  경기도 용인시 수지구 풍덕천로139번길 16-5 (16837) · contact@luckynova.co.kr · © 2024–2026 Lucky Nova Co., Ltd.
+</div></footer>
+<script>
+(function(){const g=document.getElementById('gnb'),b=document.getElementById('burger'),h=document.getElementById('hd'),home=document.body.classList.contains('home');
+b.addEventListener('click',()=>{const o=g.classList.toggle('open');b.setAttribute('aria-expanded',o);if(home)h.classList.toggle('light',o)});})();
+</script>
+<script>
+document.getElementById('copy').addEventListener('click',e=>{const t=document.getElementById('mail').textContent,b=e.currentTarget;
+  const ok=()=>{b.textContent='복사했습니다';setTimeout(()=>b.textContent='이메일 주소 복사',1600)};
+  if(navigator.clipboard)navigator.clipboard.writeText(t).then(ok,()=>getSelection().selectAllChildren(document.getElementById('mail')));else getSelection().selectAllChildren(document.getElementById('mail'))});
+document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();const v=id=>document.getElementById(id).value.trim(),d=document.getElementById('done');d.hidden=false;
+  if(!v('co')||!v('ct')){d.innerHTML='<b>회사명과 연락처를 입력해 주세요.</b><p>회신을 드리려면 두 항목이 필요합니다.</p>';return}
+  const t=document.querySelector('input[name=t]:checked').value;
+  const subject=`[${t}] ${v('co')} 문의`;
+  const body=`회사명: ${v('co')}\n업종: ${v('ind')}\n담당자: ${v('nm')}\n연락처: ${v('ct')}\n\n자동화하고 싶은 업무:\n${v('msg')}`;
+  location.href=`mailto:contact@luckynova.co.kr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  d.innerHTML='<b>메일 앱에서 작성된 문의를 보내 주세요.</b><p>메일 앱이 열리지 않으면 contact@luckynova.co.kr로 보내 주시면 됩니다.</p>'});
+</script>
+</body>
+</html>
