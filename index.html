@@ -93,6 +93,7 @@ section.blk{padding-block:140px}
 .pillars p{margin:0;font-size:15.5px}
 .pillars ul{margin:6px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;font-size:14.5px;color:var(--ink)}
 .pillars li::before{content:"—";color:var(--nova);margin-right:10px}
+.pillars.six article:nth-child(3n+1){padding-left:0}
 @media (max-width:860px){.pillars{grid-template-columns:1fr}.pillars article,.pillars article+article{padding:32px 0}}
 
 /* product feature */
@@ -102,23 +103,17 @@ section.blk{padding-block:140px}
 .feature .mono{color:var(--on-dark-2)}
 .feature p{font-size:17px;margin:24px 0 32px;max-width:44ch}
 .feature .tag{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--nova);border:1px solid rgba(233,164,60,.45);border-radius:999px;padding:3px 12px;margin-bottom:22px}
-.mock{background:var(--ink-2);border:1px solid var(--line-dark);border-radius:20px;padding:20px;box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
-.mock .bar{display:flex;justify-content:space-between;align-items:center;color:var(--on-dark);font-size:13px;margin-bottom:16px}
-.mock .bar b{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--nova)}
-.mock .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
-.mock .k{background:var(--ink-3);border-radius:12px;padding:14px}
-.mock .k span{display:block;font-size:11.5px;color:var(--on-dark-2)}
-.mock .k strong{display:block;color:#fff;font-size:20px;font-weight:600;font-family:var(--mono);margin-top:2px}
-.mock .k strong.al{color:#ef7a68}
-.mock .rows{margin-top:10px;background:var(--ink-3);border-radius:12px;padding:6px 14px}
-.mock .r{display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center;padding:11px 0;border-top:1px solid var(--line-dark);font-size:13px;color:var(--on-dark)}
-.mock .r:first-child{border-top:0}
-.mock .r i{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--on-dark-2)}
-.mock .pill{font-size:11px;font-weight:600;padding:2px 9px;border-radius:999px}
-.mock .p1{background:rgba(239,122,104,.16);color:#ef7a68}.mock .p2{background:rgba(233,164,60,.16);color:var(--nova)}.mock .p3{background:rgba(110,200,160,.14);color:#6ec8a0}
-.mock .ai{margin-top:10px;border-radius:12px;padding:14px;background:linear-gradient(0deg,rgba(233,164,60,.08),rgba(233,164,60,.08)),var(--ink-3);border:1px solid rgba(233,164,60,.3);font-size:13px;color:var(--on-dark)}
-.mock .ai b{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--nova);margin-bottom:4px}
+.routine{border-top:1px solid var(--on-dark-2)}
+.routine .rt-hd{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;color:var(--on-dark);font-size:14px;font-weight:600;border-bottom:1px solid var(--line-dark)}
+.routine .rt-hd b{font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:.1em;color:var(--on-dark-2);text-transform:uppercase}
+.routine dl{margin:0}
+.routine dl>div{display:grid;grid-template-columns:110px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--line-dark)}
+.routine dt{font-family:var(--mono);font-size:12.5px;color:var(--nova);padding-top:2px}
+.routine dd{margin:0}
+.routine dd strong{display:block;color:#fff;font-size:16px;font-weight:600}
+.routine dd span{display:block;font-size:14px;color:var(--on-dark-2);margin-top:2px}
 @media (max-width:960px){.feature .wrap{grid-template-columns:1fr;gap:50px;padding-block:90px}}
+@media (max-width:520px){.routine dl>div{grid-template-columns:1fr;gap:4px}}
 
 .process{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}
 .process div{padding:32px 28px 0 0}
@@ -237,51 +232,50 @@ footer.ft .bot b{color:var(--on-dark);font-weight:600}
     <canvas id="nova" aria-hidden="true"></canvas>
     <div class="copy"><div class="wrap">
       <div class="mono"><span class="dot"></span>AI Operations for Field Industries</div>
-      <h1>현장의 일을,<br>AI로 <span>다시 설계합니다</span></h1>
-      <p>전화, 엑셀, 수기 장부로 돌아가는 현장 업무를 업종에 꼭 맞는 AI 자동화 시스템으로 바꿉니다. 기록은 자동으로, 판단은 데이터로.</p>
+      <h1>회사가 스스로<br>돌아가고, <span>스스로 점검하도록</span></h1>
+      <p>접수부터 기록, 정산, 보고까지 매일 반복되는 업무를 AI가 처리합니다. 빠진 것과 어긋난 것은 AI가 먼저 찾아 알리고, 사람은 판단이 필요한 일에만 집중합니다.</p>
       <div class="btns"><a class="btn light" href="#contact">도입 상담 신청 <span class="ar">→</span></a><a class="btn ghost" href="#solutions">솔루션 보기</a></div>
     </div></div>
     <div class="ticker"><div class="wrap">
-      <div><span class="mono">01 Capture</span><b>문서·사진 자동 인식</b></div>
-      <div><span class="mono">02 Detect</span><b>이상 징후 자동 탐지</b></div>
-      <div><span class="mono">03 Settle</span><b>정산·청구 자동화</b></div>
-      <div><span class="mono">04 See</span><b>실시간 경영 대시보드</b></div>
+      <div><span class="mono">01 Run</span><b>반복 업무 자동 처리</b></div>
+      <div><span class="mono">02 Check</span><b>매일 자동 점검</b></div>
+      <div><span class="mono">03 Alert</span><b>예외만 사람에게</b></div>
+      <div><span class="mono">04 Report</span><b>경영 보고 자동 발행</b></div>
     </div></div>
   </section>
 
   <section class="blk"><div class="wrap">
     <div class="split-head">
-      <div><div class="mono"><span class="dot"></span>What we do</div><h2 class="ttl" style="margin-top:20px">범용 AI가 아니라,<br><em>그 업종의 AI</em>를 만듭니다</h2></div>
-      <p>현장 업무에는 업종마다 다른 규칙과 단위, 관행이 있습니다. 럭키노바는 한 업종을 깊게 이해하고, 그 업무 흐름 안에서 AI가 실제로 일하도록 설계합니다.</p>
+      <div><div class="mono"><span class="dot"></span>What we do</div><h2 class="ttl" style="margin-top:20px">한 가지 업무가 아니라,<br><em>회사 전체의 흐름</em>을 자동화합니다</h2></div>
+      <p>현장, 경리, 인사, 자산, 고객 응대까지 회사 업무는 서로 이어져 있습니다. 럭키노바는 업종의 규칙과 관행을 이해한 AI를 그 흐름 전체에 배치해, 일이 사람 손을 덜 거치고도 정확하게 흘러가게 만듭니다.</p>
     </div>
-    <div class="pillars">
-      <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><h3>기록 자동화</h3><p>영수증, 작업일지, 거래 문서를 사진 한 장으로 읽어 시스템에 자동 입력합니다.</p><ul><li>AI 문서·이미지 인식</li><li>현장용 모바일 입력</li></ul></article>
-      <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 3 5-7 4 4"/><circle cx="17" cy="7" r="1.2"/></svg></div><h3>이상 탐지·예측</h3><p>쌓인 운영 데이터로 정상 패턴을 학습해, 낭비와 이상을 사람이 찾기 전에 알려줍니다.</p><ul><li>비용 이상 사용 탐지</li><li>작업량·수요 예측</li></ul></article>
-      <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>정산·경영 가시화</h3><p>작업 기록에서 청구서까지 자동으로 이어지고, 대표는 손익과 가동률을 실시간으로 봅니다.</p><ul><li>요율·할증 자동 계산</li><li>대표용 모바일 대시보드</li></ul></article>
+    <div class="pillars six">
+      <article><span class="mono">01 · Operations</span><h3>현장·운영</h3><p>작업 접수와 배정, 작업일지를 자동으로 기록하고 누락된 기록을 매일 확인합니다.</p><ul><li>사진·문서 자동 인식 입력</li><li>작업 기록 누락 점검</li></ul></article>
+      <article><span class="mono">02 · Finance</span><h3>정산·경리</h3><p>작업 기록에서 청구서까지 자동으로 이어지고, 미수금과 지출 증빙을 AI가 챙깁니다.</p><ul><li>요율 기반 청구서 자동 작성</li><li>미수·증빙 누락 알림</li></ul></article>
+      <article><span class="mono">03 · People</span><h3>인사·근무</h3><p>근무표와 휴식시간, 휴가 신청과 승인을 한 곳에서 관리하고 규정 위반 소지를 미리 알립니다.</p><ul><li>근무·휴식시간 자동 점검</li><li>휴가 신청·승인 흐름</li></ul></article>
+      <article><span class="mono">04 · Assets</span><h3>자산·정비·증서</h3><p>장비 정비 주기와 검사, 각종 증서와 계약의 만료일을 추적해 놓치지 않게 합니다.</p><ul><li>만료 30일 전 단계별 알림</li><li>정비 이력 자동 정리</li></ul></article>
+      <article><span class="mono">05 · Cost</span><h3>비용·이상 탐지</h3><p>쌓인 운영 데이터로 평소 패턴을 학습해, 연료·자재 등 비용이 새는 지점을 먼저 찾아냅니다.</p><ul><li>평소 대비 이상 사용 탐지</li><li>작업량·수요 예측</li></ul></article>
+      <article><span class="mono">06 · Management</span><h3>경영 보고</h3><p>매출, 비용, 가동률을 자동으로 집계해 대표에게 정해진 주기로 요약 보고합니다.</p><ul><li>주간·월간 리포트 자동 발행</li><li>대표용 모바일 화면</li></ul></article>
     </div>
   </div></section>
 
   <section class="feature"><div class="wrap">
     <div>
-      <span class="tag">FIRST VERTICAL · MARITIME</span>
-      <div class="mono">Product</div>
-      <h2 class="ttl" style="margin-top:18px">TUGDESK<br><span style="color:var(--on-dark-2);font-weight:400">예선사를 위한 AI 운영관리</span></h2>
-      <p>항만 예선사의 운항, 연료, 정산, 인력을 하나로 묶었습니다. AIS 실시간 위치와 척별 연료 데이터를 바탕으로 AI가 낭비 구간을 찾아냅니다.</p>
-      <a class="btn light" href="#solutions">자세히 보기 <span class="ar">→</span></a>
+      <div class="mono">AI Operations Routine</div>
+      <h2 class="ttl" style="margin-top:18px">AI가 매일,<br><span style="color:var(--on-dark-2);font-weight:400">회사를 한 바퀴 점검합니다</span></h2>
+      <p>정해진 시간마다 AI가 회사의 기록과 숫자를 확인합니다. 문제가 없으면 조용히 넘어가고, 빠지거나 어긋난 것만 담당자에게 알립니다. 대표는 매일 아침 확인할 것만 받아 봅니다.</p>
+      <a class="btn light" href="#solutions">자동화 범위 보기 <span class="ar">→</span></a>
     </div>
-    <div class="mock" aria-label="TUGDESK 화면 예시">
-      <div class="bar"><span>오늘의 선단 현황</span><b>LIVE · 예시 데이터</b></div>
-      <div class="grid">
-        <div class="k"><span>운항 중</span><strong>4 / 6</strong></div>
-        <div class="k"><span>이번 달 연료</span><strong>74,260L</strong></div>
-        <div class="k"><span>확인 필요</span><strong class="al">3</strong></div>
-      </div>
-      <div class="rows">
-        <div class="r"><span>2호 · 작업지 이동</span><i>12.4 kn</i><span class="pill p1">과속</span></div>
-        <div class="r"><span>3호 · 작업 후 대기</span><i>52 min</i><span class="pill p2">공회전</span></div>
-        <div class="r"><span>1호 · 컨테이너선 접안</span><i>2.1 kn</i><span class="pill p3">작업 중</span></div>
-      </div>
-      <div class="ai"><b>AI INSIGHT</b>3호의 작업 1시간당 연료가 선단 평균보다 28% 높습니다. 대기 중 공회전이 주원인으로 보입니다.</div>
+    <div class="routine" aria-label="자동 점검 항목 예시">
+      <div class="rt-hd"><span>자동 점검 항목</span><b>회사별 설정 예시</b></div>
+      <dl>
+        <div><dt>매일 06:00</dt><dd><strong>전일 작업 기록 마감 확인</strong><span>기록이 빠진 작업은 담당자에게 입력 요청</span></dd></div>
+        <div><dt>매일 08:30</dt><dd><strong>대표 아침 브리핑</strong><span>어제 실적, 오늘 일정, 확인이 필요한 건만 요약</span></dd></div>
+        <div><dt>매일</dt><dd><strong>청구·미수 점검</strong><span>청구 대기 건은 청구서 초안 작성, 미수는 단계별 알림</span></dd></div>
+        <div><dt>매주 월</dt><dd><strong>비용 이상 탐지</strong><span>연료·자재·경비가 평소 범위를 벗어난 항목 보고</span></dd></div>
+        <div><dt>상시</dt><dd><strong>증서·계약·면허 만료 추적</strong><span>만료 30일 전부터 단계별 알림</span></dd></div>
+        <div><dt>매월 말</dt><dd><strong>근무·경비 마감과 월간 리포트</strong><span>경리 검토용 자료 정리, 손익·가동률 요약 발행</span></dd></div>
+      </dl>
     </div>
   </div></section>
 
@@ -306,19 +300,19 @@ footer.ft .bot b{color:var(--on-dark);font-weight:600}
 
 <!-- SOLUTIONS -->
 <div class="page" id="pg-solutions">
-  <section class="sub-hero"><div class="glow"></div><div class="wrap"><div class="mono">Solutions</div><h1>솔루션</h1><p>업종 특화 AI 운영관리 제품과, 각 회사 업무에 맞춘 AI 자동화 구축을 제공합니다.</p></div></section>
+  <section class="sub-hero"><div class="glow"></div><div class="wrap"><div class="mono">Solutions</div><h1>솔루션</h1><p>회사 업무 전체에 AI를 배치해, 반복 업무는 자동으로 처리되고 빠진 것은 자동으로 점검되는 운영 체계를 만듭니다.</p></div></section>
   <section class="sec"><div class="wrap">
     <div class="prod">
       <div class="card dark">
-        <span class="status" style="color:var(--nova)">PILOT · 2026</span>
-        <h3>TUGDESK</h3><div class="sub">예선사 AI 운영관리 플랫폼</div>
-        <p>항만 예선사의 운항부터 정산, 인력까지. 대표는 휴대폰 하나로 회사 전체를 봅니다.</p>
+        <span class="status" style="color:var(--nova)">PLATFORM</span>
+        <h3>AI 운영관리 플랫폼</h3><div class="sub">회사 전체를 자동으로 돌리고 점검하는 시스템</div>
+        <p>업무별로 흩어진 엑셀과 장부, 단톡방을 하나로 모읍니다. AI가 정해진 주기로 기록과 숫자를 확인하고, 예외만 사람에게 넘깁니다.</p>
         <ul>
-          <li><b>실시간 선단 현황</b><span>AIS 기반 선박 위치·작업 상태</span></li>
-          <li><b>AI 연료 분석</b><span>척별 연료 효율 비교, 과속·공회전·급유 불일치 탐지</span></li>
-          <li><b>예선료 자동 정산</b><span>작업 기록 기반 요율·할증 계산, 청구·미수 관리</span></li>
-          <li><b>인력·근무 관리</b><span>선원 당직표, 휴식시간, 육상 직원 휴가·승인</span></li>
-          <li><b>정비·증서 관리</b><span>검사·증서 만료와 정비 주기 알림</span></li>
+          <li><b>자동 처리</b><span>접수·배정·기록·청구서 작성 등 반복 업무 자동 실행</span></li>
+          <li><b>자동 점검</b><span>기록 누락, 미수, 비용 이상, 만료 일정을 매일 확인</span></li>
+          <li><b>예외 알림</b><span>확인이 필요한 건만 담당자와 대표에게 전달</span></li>
+          <li><b>경영 보고</b><span>대표 아침 브리핑, 주간·월간 리포트 자동 발행</span></li>
+          <li><b>AI 업무 비서</b><span>"이번 달 미수 얼마야?"처럼 말로 묻고 바로 답 받기</span></li>
         </ul>
       </div>
       <div class="card">
@@ -334,6 +328,16 @@ footer.ft .bot b{color:var(--on-dark);font-weight:600}
         </ul>
       </div>
     </div>
+  </div></section>
+  <section class="sec"><div class="wrap sec-grid">
+    <div><div class="mono"><span class="dot"></span>Maritime</div><h2>해운·항만 업무 자동화</h2></div>
+    <div><p class="lead">첫 집중 업종은 항만 서비스업입니다. 선박 운항과 연료, 요율 정산, 선원 근무처럼 업종 고유의 규칙이 많은 업무를 현장 업체와 함께 설계하고 있습니다.</p>
+      <div class="principles">
+        <div><b>01</b><h4>운항·작업 기록</h4><p>작업 내역과 선박 위치 데이터를 바탕으로 운항 기록을 자동으로 정리합니다.</p></div>
+        <div><b>02</b><h4>연료 사용 분석</h4><p>선박별 연료 사용을 작업량과 비교해 평소와 다른 사용을 찾아냅니다.</p></div>
+        <div><b>03</b><h4>요율 기반 정산</h4><p>작업 기록에서 요율과 할증을 계산해 청구와 미수 관리까지 이어 줍니다.</p></div>
+        <div><b>04</b><h4>선원 근무·증서</h4><p>근무와 휴식시간, 선박 검사와 각종 증서의 만료 일정을 함께 관리합니다.</p></div>
+      </div></div>
   </div></section>
   <section class="sec" style="background:var(--white)"><div class="wrap sec-grid">
     <div><div class="mono"><span class="dot"></span>Industries</div><h2>집중 업종</h2></div>
@@ -410,7 +414,7 @@ footer.ft .bot b{color:var(--on-dark);font-weight:600}
     </div>
     <form id="f" novalidate>
       <div class="full" style="display:flex;flex-direction:column;gap:12px"><span style="font-size:14px;font-weight:600;color:var(--ink)">문의 유형</span>
-        <div class="chips"><label><input type="radio" name="t" id="t1" value="도입 상담" checked>도입 상담</label><label><input type="radio" name="t" id="t2" value="TUGDESK">TUGDESK</label><label><input type="radio" name="t" id="t3" value="정부 지원사업">정부 지원사업</label><label><input type="radio" name="t" id="t4" value="협업·기타">협업·기타</label></div></div>
+        <div class="chips"><label><input type="radio" name="t" id="t1" value="도입 상담" checked>도입 상담</label><label><input type="radio" name="t" id="t2" value="해운·항만">해운·항만</label><label><input type="radio" name="t" id="t3" value="정부 지원사업">정부 지원사업</label><label><input type="radio" name="t" id="t4" value="협업·기타">협업·기타</label></div></div>
       <label>회사명<input id="co" placeholder="회사명"></label>
       <label>업종<input id="ind" placeholder="예: 항만 예선, 물류"></label>
       <label>담당자<input id="nm" placeholder="이름"></label>
